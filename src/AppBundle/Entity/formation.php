@@ -130,5 +130,8 @@ class formation
     {
         return $this->dateFin;
     }
+
+
+
 }
 

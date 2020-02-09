@@ -16,52 +16,144 @@ class User extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="cin", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    protected $cin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $name;
-
+    private $nom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255)
+     */
+    private $telephone;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255)
+     */
+    private $address;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mdp", type="string", length=255)
+     */
+    private $mdp;
 
     /**
-     * Get id
+     * Set nom
      *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
+     * @param string $nom
      *
      * @return User
      */
-    public function setName($name)
+    public function setName($nom)
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get nom
      *
      * @return string
      */
-    public function getName()
+    public function getNom()
     {
-        return $this->name;
+        return $this->nom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param int $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param string $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * @param string $mdp
+     */
+    public function setMdp($mdp)
+    {
+        $this->mdp = $mdp;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
     }
 
 

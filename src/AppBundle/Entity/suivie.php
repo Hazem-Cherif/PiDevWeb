@@ -93,5 +93,27 @@ class suivie
     {
         return $this->resultat;
     }
+    /**
+     * @ORM\ManyToOne(targetEntity="enfants")
+     * @ORM\JoinColumn(name="enfants_id",referencedColumnName="id")
+     */
+    private  $enfants;
+
+    /**
+     * @return mixed
+     */
+    public function getEnfants()
+    {
+        return $this->enfants;
+    }
+
+    /**
+     * @param mixed $enfants
+     */
+    public function setEnfants($enfants)
+    {
+        $this->enfants = $enfants;
+    }
+
 }
 

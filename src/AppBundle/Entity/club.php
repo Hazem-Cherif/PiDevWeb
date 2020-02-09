@@ -99,6 +99,48 @@ class club
     {
         $this->nom = $nom;
     }
+    /**
+     * @ORM\ManyToOne(targetEntity="animateur")
+     * @ORM\JoinColumn(name="animateur_club",referencedColumnName="cin")
+     */
+    private  $animatuer;
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="animateur_user",referencedColumnName="cin")
+     */
+    private  $user;
+
+    /**
+     * @return mixed
+     */
+    public function getAnimatuer()
+    {
+        return $this->animatuer;
+    }
+
+    /**
+     * @param mixed $animatuer
+     */
+    public function setAnimatuer($animatuer)
+    {
+        $this->animatuer = $animatuer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
 }
 

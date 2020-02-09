@@ -93,5 +93,27 @@ class info_sante
     {
         return $this->etat;
     }
+    /**
+     * @ORM\ManyToOne(targetEntity="medecin")
+     * @ORM\JoinColumn(name="info_sante_medecin",referencedColumnName="cin")
+     */
+    private  $medecin;
+
+    /**
+     * @return mixed
+     */
+    public function getMedecin()
+    {
+        return $this->medecin;
+    }
+
+    /**
+     * @param mixed $medecin
+     */
+    public function setMedecin($medecin)
+    {
+        $this->medecin = $medecin;
+    }
+
 }
 

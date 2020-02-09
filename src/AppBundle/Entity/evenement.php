@@ -161,5 +161,27 @@ class evenement
     {
         return $this->prix;
     }
+    /**
+     * @ORM\ManyToOne(targetEntity="categorie")
+     * @ORM\JoinColumn(name="categorie_type_evenement",referencedColumnName="type_evenement")
+     */
+    private  $categorie;
+
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
+
 }
 
