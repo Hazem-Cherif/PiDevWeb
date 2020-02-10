@@ -105,8 +105,8 @@ class club
      */
     private  $animatuer;
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="animateur_user",referencedColumnName="cin")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="animateur_user",referencedColumnName="id")
      */
     private  $user;
 
@@ -141,6 +141,5 @@ class club
     {
         $this->user = $user;
     }
-
 }
 
