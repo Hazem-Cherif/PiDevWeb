@@ -5,8 +5,9 @@ security:
 
     role_hierarchy:
         ROLE_PARENT: ROLE_PARENT
+        ROLE_RESPONSABLE: ROLE_RESPONSABLE
+        ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
-        ROLE_CLIENT:       ROLE_PARENT
 
     providers:
         fos_userbundle:
@@ -19,7 +20,6 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                success_handler: redirect.after.login
 
             logout:       true
             anonymous:    true
@@ -29,7 +29,3 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/pageResponsable/, role: ROLE_RESPONSBALE }
-        - { path: ^/pageParent/, role: ROLE_PARENT }
-
-
