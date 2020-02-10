@@ -115,5 +115,6 @@ class info_sante
         $this->medecin = $medecin;
     }
 
+
 }
 
