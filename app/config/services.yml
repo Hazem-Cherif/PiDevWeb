@@ -4,6 +4,11 @@ parameters:
     #parameter_name: value
 
 services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+    redirect.after.login:
+        class: UserBundle\Redirection\AfterLoginRedirection
+        arguments: ['@router']
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

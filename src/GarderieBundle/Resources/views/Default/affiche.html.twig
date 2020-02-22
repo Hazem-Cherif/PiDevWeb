@@ -1,0 +1,33 @@
+{% extends '@Garderie/Default/layoutBack.html.twig' %}
+{% block body %}
+    <h4>
+<table  border='1'>
+    <tr style="color: #f78a09"><th>numGard</th>
+        <th>nom</th>
+        <th>adresse</th>
+        <th>telephone</th>
+        <th>supprimer</th>
+        <th>modifier</th>
+        <th>image</th>
+
+    </tr>
+
+    {% for g in Garderie %}
+
+
+        <tr style="color: #1e7e34"><td>{{ g.numGard }}</td>
+            <td>{{g.nom}}</td>
+            <td>{{g.adresse}}</td>
+            <td>{{ g.telephone }}</td>
+            <td><a href="{{ path('garderie_del',{'id':g.numGard}) }}">Supprimer</a></td>
+            <td><a href="{{ path('garderie_Update',{'id':g.numGard}) }}">Modifier</a></td>
+            <td><img src="{{ asset('uploads/'~ g.image) }}" width="150" height="150"></td>
+
+        </tr>
+
+
+
+    {% endfor %}
+</table>
+    </h4>
+{% endblock %}
