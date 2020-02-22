@@ -110,21 +110,16 @@ class enfant
     {
         return $this->nom;
     }
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="garderie", type="string", length=255)
-     */
-    private $garderie;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="parent", type="string", length=255)
-     */
-    private $parent;
 
     /**
-     * @return string
+     * @var int
+     * @ORM\ManyToOne(targetEntity="GarderieBundle\Entity\Garderie")
+     * @ORM\JoinColumn(name="garderie_id",referencedColumnName="numGard")
+     */
+    private $garderie;
+
+    /**
+     * @return int
      */
     public function getGarderie()
     {
@@ -132,12 +127,20 @@ class enfant
     }
 
     /**
-     * @param string $garderie
+     * @param int $garderie
      */
     public function setGarderie($garderie)
     {
         $this->garderie = $garderie;
     }
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="parent", type="string", length=255)
+     */
+    private $parent;
 
     /**
      * @return string

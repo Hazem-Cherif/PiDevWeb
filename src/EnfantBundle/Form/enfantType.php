@@ -2,6 +2,7 @@
 
 namespace EnfantBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Button;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -16,7 +17,13 @@ class enfantType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('garderie')
+        $builder->add('nom')
+            ->add('prenom')
+            ->add('garderie',EntityType::class,
+                array(
+                    'class'=>'GarderieBundle\Entity\Garderie',
+                    'choice_label'=>'numGard',
+                    'multiple'=>false))
             ->add('dn', DateType::class, [
                 'widget' => 'single_text',
                 // this is actually the default format for single_text
