@@ -16,7 +16,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ClubBundle:Front:layoutFront.html.twig');
+        return $this->render('@Club/Default/layoutFront.html.twig');
     }
 
     public function AjoutClubAction(Request $request)

@@ -31,8 +31,7 @@
         "symfony/symfony": "3.4.*",
         "twig/twig": "^1.0||^2.0",
         "symfony/mime": "^5.0"
-        "todstoychev/bootstrap-alert-bundle": "^0.1.6",
-        "twig/twig": "^1.0||^2.0"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
