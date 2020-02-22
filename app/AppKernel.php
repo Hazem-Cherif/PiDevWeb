@@ -19,10 +19,14 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
-            new ClubBundle\ClubBundle(),
-            new Todstoychev\BootstrapAlertBundle\TodstoychevBootstrapAlertBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new GarderieBundle\GarderieBundle(),
+            new MyAppMailBundle\MyAppMailBundle(),
+            new EnfantBundle\EnfantBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Todstoychev\BootstrapAlertBundle\TodstoychevBootstrapAlertBundle(),
+            new ClubBundle\ClubBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,0 +1,67 @@
+{% extends '@Garderie/Default/layoutBack.html.twig' %}
+{% block body %}
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <h4>
+        {{ form_start(form) }}
+        {{ form_row(form.numGard,{'label':'numéro garderie'}) }}
+        {{ form_row(form.nom,{'label':'nom de la garderie'}) }}
+        {{ form_row(form.telephone,{'label':'numéro telephone'}) }}
+        {{ form_row(form.adresse,{'label':'adresse garderie'}) }}
+        {{ form_widget(form.image,{'label':'inserer une image'}) }}
+        {{ form_widget(form.ajouter,{'label':'ajouter'}) }}
+        {{ form_end(form) }}
+    </h4>
+    <div id="map" style="width: 520px; height: 550px"></div>
+
+    <script>
+        // Creating map options
+        var mapOptions = {
+            center: [36.81897, 10.16579],
+            zoom: 5
+        }
+        // Creating a map object
+        var map = new L.map('map', mapOptions);
+
+        // Creating a Layer object
+        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+        // Adding layer to the map
+        map.addLayer(layer);
+
+
+        var popup = L.popup();
+        var newMarker;
+        function onMapClick(e) {
+            if (newMarker) { // check
+                map.removeLayer(newMarker); // remove
+                // map.removeControl(newMarker); // remove
+            }
+            newMarker = new L.marker(e.latlng).addTo(map);
+            $.get("https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+e.latlng.lat+"&lon="+e.latlng.lng, function(data, status){
+               // alert("Data: " + + "\nStatus: " + status);
+
+                document.getElementById("garderiebundle_garderie_adresse").value= data.display_name;
+                // document.getElementById("ad:location").value=data.address.country+", "+data.address.state;
+            });
+        }
+
+        map.on('click', onMapClick);
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+{% endblock %}

@@ -14,17 +14,17 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
+        return $this->render('Front/layoutFront.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
     /**
      * @Route("/backoffice", name="homepage")
      */
-    public function indexbackAction(Request $request)
+    public function indexBackAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/layoutBack.html.twig', [
+        return $this->render('Default/layoutBack.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }

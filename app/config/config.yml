@@ -3,12 +3,16 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@GarderieBundle/Resources/config/services.yml" }
+    - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
+    - { resource: "@EnfantBundle/Resources/config/services.yml" }
     - { resource: "@ClubBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    brochures_directory: '%kernel.project_dir%/web/uploads/'
 
 framework:
     #esi: ~
@@ -72,10 +76,10 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
+    transport: gmail
+    host: smtp.gmail.com
+    username: tesprit2020@gmail.com
+    password: Test2020
     spool: { type: memory }
 
 sensio_framework_extra:
@@ -89,7 +93,19 @@ fos_user:
     from_email:
         address: "beya@mgmail.com"
         sender_name: "beya@mgmail.com"
-
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     "\"C:\Program Files\\wkhtmltopdf\\binwkhtmltoimage.exe\""
+        options:    []
 knp_paginator:
     page_range: 5
     default_options:
