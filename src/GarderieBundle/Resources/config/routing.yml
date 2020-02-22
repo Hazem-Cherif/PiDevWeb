@@ -28,5 +28,8 @@ garderie_Updateresponsable:
 garderie_map:
     path:     /map
     defaults: { _controller: GarderieBundle:Default:map }
+listEnfantAPayer:
+    path:     /listPayement
+    defaults: { _controller: GarderieBundle:Default:getListEnfantaPayer }
 
 

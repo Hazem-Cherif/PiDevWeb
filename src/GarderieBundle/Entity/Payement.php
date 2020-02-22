@@ -36,7 +36,7 @@ class Payement
     private $date;
 
     /**
-     *@ORM\OneToOne(targetEntity="UserBundle\Entity\User")
+     *@ORM\OneToOne(targetEntity="EnfantBundle\Entity\enfant")
      *@ORM\JoinColumn(name="enfant",referencedColumnName="id")
 
 
@@ -101,5 +101,23 @@ class Payement
     {
         return $this->date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
+    }
+
+    /**
+     * @param mixed $enfant
+     */
+    public function setEnfant($enfant)
+    {
+        $this->enfant = $enfant;
+    }
+
+
 }
 

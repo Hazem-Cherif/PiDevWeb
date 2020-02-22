@@ -10,4 +10,12 @@ namespace GarderieBundle\Repository;
  */
 class GarderieRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getGarderieByResponsable($id)
+    {
+        $Query = $this->getEntityManager()->createQuery(
+            "SELECT A FROM GarderieBundle:Garderie A   WHERE A.cin_resp = :p")
+            ->setParameter('p',$id);
+
+        return $Query->getResult();
+    }
 }

@@ -1,0 +1,10 @@
+{% extends '@Garderie/Default/layoutBack.html.twig' %}
+{% block body %}
+    {% for enfant in listEnfant %}
+        <span>
+            <h5>{{enfant.nom}}</h5>
+            <h5>{{enfant.prenom}}</h5>
+            <button>payer</button>
+        </span>
+    {% endfor %}
+{% endblock %}
