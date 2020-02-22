@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new GarderieBundle\GarderieBundle(),
             new MyAppMailBundle\MyAppMailBundle(),
+            new EnfantBundle\EnfantBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

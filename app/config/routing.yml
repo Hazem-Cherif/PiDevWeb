@@ -10,6 +10,10 @@ user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /
 
+enfant:
+    resource: "@EnfantBundle/Resources/config/routing.yml"
+    prefix:   /enfant
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

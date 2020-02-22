@@ -187,4 +187,3 @@ class Mail
         return $this->txt;
     }
 }
-

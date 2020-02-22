@@ -12,4 +12,3 @@ Page_Admin:
 Page_Responsable:
     path:     /pageResponsable
     defaults: { _controller: UserBundle:Default:Responsable }
-
