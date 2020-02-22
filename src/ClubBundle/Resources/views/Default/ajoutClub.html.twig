@@ -1,0 +1,22 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+
+
+{% block body %}
+
+                        <h2>Ajout Club</h2>
+<h3 style="color :#0b2e13">
+    {{ form_start(form) }}
+
+    {{ form_widget(form.nom,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('NOM')} }) }}
+    {{ form_widget(form.description,{'placeholder':'Nom', 'attr': {'class':'form-control mb-3','placeholder': placeholder|default('DESCRIPTION')} }) }}
+
+    {{ form_widget(form.dateCreation,{'label':'Date Naissance', 'attr': {'class':'form-control mb-3'}}) }}
+
+    {{ form_widget(form.ajouter,{'label':'ajouter', 'attr': {'class':'btn btn-primary'}}) }}
+    {{ form_end(form) }}
+
+
+
+</h3>
+
+{% endblock %}

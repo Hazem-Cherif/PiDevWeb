@@ -1,0 +1,19 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+
+{% block body %}
+    {% for c in club %}
+
+
+
+    <div data-category="arts, law" class="col-lg-10 col-sm-12 mb-10 filtr-item">
+        <div class=" card border-0 rounded-0 hover-shadow  ">
+                    <h4> Nom : {{ c.nom }} </h4> <br>
+                    <h4>Description : {{ c.description }} </h4 ><br>
+                    <h4>Date creation : {{ c.dateCreation|date("m/d/Y") }}</h4>
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

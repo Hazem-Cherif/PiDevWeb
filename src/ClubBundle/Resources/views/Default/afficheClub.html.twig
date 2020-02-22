@@ -1,0 +1,28 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+
+{% block body %}
+
+    <h2> Liste des Club</h2>
+    <h3>
+<table border=5 >
+<tr style="color : #FF6B6B">
+    <td>Nom  </td>
+    <td>Description </td>
+    <td>Date creation </td>
+
+</tr>
+{% for c in club %}
+    <tr style="color :#00a6b2">
+
+        <td >{{ c.nom }} </td>
+        <td>{{ c.description }}</td>
+        <td>{{ c.dateCreation|date("m/d/Y") }}</td>
+        <td> <a href="{{ path('suppclub',{'nom':c.nom}) }}">Supprimer</a></td>
+        <td> <a href="{{ path('UpdateClub',{'nom':c.nom}) }}">Modifier</a></td>
+
+    </tr>
+
+{% endfor %}
+</table></h3>
+
+{% endblock %}

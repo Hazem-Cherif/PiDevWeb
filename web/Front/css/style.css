@@ -151,7 +151,14 @@ h6, .h6 {
   font-size: 14px;
   padding: 10px 35px;
 }
-
+.vote {
+  margin: 50px 0;
+}
+.vote_bar{
+  width: 150px;
+  height: 4px;
+  background-color: #761c19;
+}
 .btn-xs {
   font-size: 12px;
   padding: 5px 15px;

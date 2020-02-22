@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@ClubBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -9,10 +11,10 @@ parameters:
     locale: en
 
 framework:
-    templating:
-        engines: ['twig']
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
+    templating:
+        engines: ['twig']
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -37,7 +39,15 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-
+    globals:
+        todstoychev_bootstrap_alert:
+            use_close_button: true # Allows you to use close button in alert boxes
+            use_icons: true # Show icons in alert boxes
+            icons:
+                error: 'glyphicon glyphicon-close-sign'
+                warning: 'glyphicon glyphicon-exclamation-sign'
+                info: 'glyphicon glyhicon-info-sign'
+                success: 'glyphicon glyphicon-ok-sign'
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -69,12 +79,24 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-    router:
+   router:
         annotations: false
+
 fos_user:
-    db_driver: orm
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: App\Entity\User
+    user_class: UserBundle\Entity\User
     from_email:
-        address: "mezgani.said@gmail.com"
-        sender_name: "mezgani.said@gmail.com"
+        address: "beya@mgmail.com"
+        sender_name: "beya@mgmail.com"
+
+knp_paginator:
+    page_range: 5
+    default_options:
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
+    template:
+        pagination: 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig'
+        sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig'
