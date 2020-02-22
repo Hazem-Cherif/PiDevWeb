@@ -12,6 +12,7 @@
     <!-- ** Plugins Needed for the Project ** -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('Front/plugins/bootstrap/bootstrap.min.css') }}">
+
     <!-- slick slider -->
     <link rel="stylesheet" href="{{ asset('Front/plugins/slick/slick.css') }}">
     <!-- themefy-icon -->
@@ -27,26 +28,49 @@
     <link href="{{ asset('Front/css/style.css') }}" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png')}}" type="image/x-icon">
 
 </head>
 
 <body>
 <!-- preloader start -->
 <div class="preloader">
-    <img src="images/preloader.gif" alt="preloader">
+    <img src="{{ asset('images/preloader.gif')}}" alt="preloader">
 </div>
 <!-- preloader end -->
 
 <!-- header -->
 <header class="fixed-top header">
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #cbcbcb;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: #ffbc3b;
+            color: white;
+        }
+    </style>
     <!-- top header -->
     <div class="top-header py-2 bg-white">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 text-center text-lg-left">
-                    <a class="text-color mr-3" href="callto:+443003030266"><strong>CALL</strong> +44 300 303 0266</a>
+                    <a class="text-color mr-3" href="{{ asset('callto:+443003030266')}}"><strong>CALL</strong> +44 300 303 0266</a>
                     <ul class="list-inline d-inline">
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
@@ -70,7 +94,7 @@
     <div class="navigation w-100">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="index.html"><img src="{{ asset('images/logo.png')}}" alt="logo"></a>
                 <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -119,8 +143,21 @@
         </div>
     </div>
 </header>
-{% block %}
-{% endblock %}
+
+
+<section class="hero-section overlay bg-cover" data-background={{ asset('Front/images/banner/banner-1.jpg')}}>
+    <div class="container">
+        <diV class="row">
+            <div class="col-md-8" >
+
+        {% block body %}
+        {% endblock %}
+            </div>
+    </div>
+    </div>
+</section>
+<!-- /hero slider -->
+
 
 <!-- footer -->
 <footer>
@@ -222,7 +259,7 @@
 <!-- filter -->
 <script src="{{ asset('Front/plugins/filterizr/jquery.filterizr.min.js') }}"></script>
 <!-- google map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ')}}"></script>
 <script src="{{ asset('Front/plugins/google-map/gmap.js') }}"></script>
 
 <!-- Main Script -->

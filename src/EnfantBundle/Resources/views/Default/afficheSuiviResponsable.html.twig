@@ -1,0 +1,46 @@
+{% extends '@Enfant/Default/layoutFront.html.twig' %}
+{% block body %}
+    <input id="myInput" type="text" placeholder="Search.." onkeyup='searchTable()'>
+<table border="1" id="t01">
+    <tr><th>Id</th><th>Note_anglais</th><th>Note_francais</th><th>Note_info</th><th>Date</th></tr>
+    {% for e in suivi %}
+
+        <tr><td>{{e.id }}</td>
+
+            <td>{{ e.noteAnglais }}</td>
+            <td>{{ e.noteFrancais }}</td>
+            <td>{{ e.noteInfo }}</td>
+            <td> {{ e.date|date('Y-m-d') }}</td>
+            <td><a href="{{path('modifierSuivi',{'id':e.id})}}">Modifier</a> </td>
+            <td><a href="{{path('suppressionsuivi',{'id':e.id})}}">Supprimer</a> </td>
+        </tr>
+    {% endfor %}
+</table>
+    <script type="text/javascript">
+        function searchTable() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("t01");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td") ;
+                for(j=0 ; j<td.length ; j++)
+                {
+                    let tdata = td[j] ;
+                    if (tdata) {
+                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break ;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+{% endblock %}

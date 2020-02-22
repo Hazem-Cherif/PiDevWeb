@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@EnfantBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -9,10 +11,10 @@ parameters:
     locale: en
 
 framework:
-    templating:
-        engines: ['twig']
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
+    templating:
+        engines: ['twig']
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -69,12 +71,26 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-    router:
+   router:
         annotations: false
+
 fos_user:
-    db_driver: orm
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: App\Entity\User
+    user_class: UserBundle\Entity\User
     from_email:
-        address: "mezgani.said@gmail.com"
-        sender_name: "mezgani.said@gmail.com"
+        address: "beya@mgmail.com"
+        sender_name: "beya@mgmail.com"
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     "\"C:\Program Files\\wkhtmltopdf\\binwkhtmltoimage.exe\""
+        options:    []
