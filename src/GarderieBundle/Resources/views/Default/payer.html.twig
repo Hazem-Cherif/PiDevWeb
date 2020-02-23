@@ -1,10 +1,20 @@
 {% extends '@Garderie/Default/layoutBack.html.twig' %}
 {% block body %}
-    {% for enfant in listEnfant %}
-        <span>
-            <h5>{{enfant.nom}}</h5>
-            <h5>{{enfant.prenom}}</h5>
-            <button>payer</button>
+    <form method="POST" action="{{ path('validerPayement') }}">
+    <span>
+        <input type="text" id="id" name="id" value="{{ enfant.id }}" hidden>
+            <h5>{{ enfant.nom }}</h5>
+            <h5>{{ enfant.prenom }}</h5>
+             <img src="{{ asset('Upload/'~ enfant.nomfile) }}" width="150" height="150">
+            <select required name="selectType" id="selectType">
+                <option value="" selected disabled hidden>duree payement</option>
+                <option value="trimester"> trimester </option>
+                <option value="semester"> semester </option>
+                <option value="annee"> annee </option>
+            </select>
+        <input type="submit" value=" valider payement " name="add" class="btn"/>
+
+
         </span>
-    {% endfor %}
+    </form>
 {% endblock %}

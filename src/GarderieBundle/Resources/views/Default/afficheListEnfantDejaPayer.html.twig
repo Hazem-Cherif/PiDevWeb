@@ -1,14 +1,15 @@
 {% extends '@Garderie/Default/layoutBack.html.twig' %}
 {% block body %}
     {% if listEnfant |length >0 %}
-    {% for enfant in listEnfant %}
+    {% for key,enfant in listEnfant %}
         <span>
             <h5>{{enfant.nom}}</h5>
             <h5>{{enfant.prenom}}</h5>
-            <a href="{{ path('payer' , {'id': enfant.id}) }}">payer</a>
+            <h5> payé jusqu'à {{ payement[key].date |date('Y-m-d') }} </h5>
+            <button disabled> Deja payer </button>
         </span>
     {% endfor %}
     {% else %}
-    <h5> Pas d'enfant non payé </h5>
+    <h5> Pas d'enfant déja payé </h5>
     {% endif %}
 {% endblock %}

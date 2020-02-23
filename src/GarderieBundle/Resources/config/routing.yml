@@ -31,5 +31,15 @@ garderie_map:
 listEnfantAPayer:
     path:     /listPayement
     defaults: { _controller: GarderieBundle:Default:getListEnfantaPayer }
+listEnfantDejaPayer:
+    path:     /listDejaPayer
+    defaults: { _controller: GarderieBundle:Default:getListEnfantDejaPayer }
+payer:
+    path:     /payer/{id}
+    defaults: { _controller: GarderieBundle:Default:payer }
+
+validerPayement:
+    path:     /valider
+    defaults: { _controller: GarderieBundle:Default:validerPayement }
 
 
