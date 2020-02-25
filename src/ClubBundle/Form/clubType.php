@@ -22,7 +22,7 @@ class clubType extends AbstractType
         $builder->add('nom')
                 ->add('description')
                 ->add('dateCreation',DateType::class, [ 'widget' => 'single_text'])
-                ->add('ajouter',SubmitType::class);
+                ;
     }/**
      * {@inheritdoc}
      */
