@@ -60,14 +60,14 @@ class FormationController extends Controller
         $formation = $em->getRepository("AnimateurBundle:formation")->find($id);
         $em->remove($formation);
         $em->flush();
-        $basic  = new \Nexmo\Client\Credentials\Basic('e866b7a7', 'bmB687U1dSopmBt0');
+       /* $basic  = new \Nexmo\Client\Credentials\Basic('e866b7a7', 'bmB687U1dSopmBt0');
         $client = new \Nexmo\Client($basic);
 
         $message = $client->message()->send([
             'to' => '21627650325',
             'from' => 'Nexmo',
             'text' => 'formation supprime'
-        ]);
+        ]);*/
 
         return $this->redirectToRoute('Formaton_Affiche');
     }

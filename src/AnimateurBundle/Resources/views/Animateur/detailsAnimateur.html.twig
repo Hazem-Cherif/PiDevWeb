@@ -23,19 +23,23 @@
                                     <th class="numeric">Prenom</th>
                                     <th class="numeric">Activite</th>
                                     <th class="numeric">Image</th>
+                                    <th class="numeric">Modifier</th>
                                     <th class="numeric">Affecter</th>
 
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
+                                <tr>
 
-                                        <td>{{ animateur.cin}}</td>
-                                        <td>{{ animateur.nom}}</td>
-                                        <td>{{ animateur.prenom}}</td>
-                                        <td>{{ animateur.activiter}}</td>
-                                        <td> <img src="{{ asset('Upload/')}}{{ animateur.nomfile }}" width="100" class="img-circle" /></td>
+                                    <td>{{ animateur.cin}}</td>
+                                    <td>{{ animateur.nom}}</td>
+                                    <td>{{ animateur.prenom}}</td>
+                                    <td>{{ animateur.activiter}}</td>
+                                    <td> <img src="{{ asset('Upload/')}}{{ animateur.nomfile }}" width="100" class="img-circle" /></td>
+                                    <td><a href="{{ path('Animateur_Modifier',{'cin':animateur.cin}) }}">Modifier</a> </td>
+
+
                                     <td>
 
 
@@ -47,7 +51,7 @@
                                         <input type ="submit" value="Affecter" class="btn btn-success"/>
                                         {{ form_end(form) }}
                                     </td>
-                                    </tr>
+                                </tr>
 
                                 </tbody>
                             </table>
@@ -58,6 +62,6 @@
                 <!-- /col-lg-4 -->
             </div>
 
-    </table>
+            </table>
 
 {% endblock %}

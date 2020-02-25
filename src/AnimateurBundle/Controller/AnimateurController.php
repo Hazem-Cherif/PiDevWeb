@@ -89,11 +89,11 @@ class AnimateurController extends Controller
 
         ));
     }
-    public function editAnimateurAction(Request $request, $id)
+    public function editAnimateurAction(Request $request, $cin)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $animateur = $em->getRepository('AnimateurBundle:Animateur')->find($id);
+        $animateur = $em->getRepository('AnimateurBundle:Animateur')->find($cin);
         $editForm = $this->createForm('AnimateurBundle\Form\AnimateurType', $animateur);
         $editForm->handleRequest($request);
 

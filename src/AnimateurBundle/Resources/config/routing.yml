@@ -36,7 +36,7 @@ Formaton_Suprime:
     defaults: { _controller: AnimateurBundle:Formation:Supprime }
 
 Animateur_Modifier:
-    path:     /responsable/AfficheAnimateur/{id}
+    path:     /responsable/AfficheAnimateur/{cin}
     defaults: { _controller: AnimateurBundle:Animateur:editAnimateur }
 
 Formateur_Modifier:
