@@ -30,8 +30,8 @@
         "symfony/swiftmailer-bundle": "^3.0",
         "symfony/symfony": "3.4.*",
         "twig/twig": "^1.0||^2.0",
-        "symfony/mime": "^5.0"
-
+        "symfony/mime": "^5.0",
+        "nexmo/client": "^1.9"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

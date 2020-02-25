@@ -1,0 +1,12 @@
+{% extends '@Animateur/Animateur/layoutBack.html.twig' %}
+{% block body %}
+{{ form_start(form) }}
+Cin: {{ form_widget(form.cin, { 'attr': {'class': 'contact-fields-w3ls'} }) }}
+Nom: {{ form_widget(form.nom, { 'attr': {'class':'contact-fields-w3ls '} }) }}
+Prenom: {{ form_widget(form.prenom, { 'attr': {'class': 'contact-fields-w3ls'} }) }}
+Activiter: {{ form_widget(form.activiter, { 'attr': {'class': 'contact-fields-w3ls'} }) }}
+<br>
+
+<input type="submit" value="Envoyer" class="btn btn-success"/>
+{{ form_end(form) }}
+{% endblock %}

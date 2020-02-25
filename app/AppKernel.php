@@ -27,6 +27,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Todstoychev\BootstrapAlertBundle\TodstoychevBootstrapAlertBundle(),
             new ClubBundle\ClubBundle(),
+            new AnimateurBundle\AnimateurBundle(),
+            new MedecinBundle\MedecinBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

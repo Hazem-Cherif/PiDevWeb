@@ -1,3 +1,11 @@
+medecin:
+    resource: "@MedecinBundle/Resources/config/routing.yml"
+    prefix:   /
+
+animateur:
+    resource: "@AnimateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
 my_app_mail:
     resource: "@MyAppMailBundle/Resources/config/routing.yml"
     prefix:   /
